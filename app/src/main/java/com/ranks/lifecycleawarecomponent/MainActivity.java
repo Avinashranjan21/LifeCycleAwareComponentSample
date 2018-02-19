@@ -7,10 +7,13 @@ import com.ranks.lifecycleawarecomponent.lca_component.MyComponent;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MyComponent mMyComponent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new MyComponent(this);
+         mMyComponent=new MyComponent(this);
+         mMyComponent.getCurrentStateOfLifeCycleComponent();
     }
 }

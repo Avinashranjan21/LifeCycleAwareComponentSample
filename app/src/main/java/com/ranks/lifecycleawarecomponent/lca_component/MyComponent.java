@@ -49,5 +49,11 @@ public class MyComponent implements LifecycleObserver {
         ((AppCompatActivity) this.mContext).getLifecycle().removeObserver(this);
     }
 
+//    This is used to know the current state of the app
+    public void getCurrentStateOfLifeCycleComponent(){
+        Lifecycle.State currentState = ((AppCompatActivity) this.mContext).getLifecycle().getCurrentState();
+        Log.d(TAG, "getCurrentStateOfLifeCycleComponent: "+ currentState);
+    }
+
 
 }
