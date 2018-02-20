@@ -1,0 +1,82 @@
+package com.ranks.lifecycleawarecomponent.view_model;
+
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import com.ranks.lifecycleawarecomponent.R;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
+
+
+public class FragmentB extends Fragment {
+
+    @BindView(R.id.tv_result_b)
+    TextView tvResultB;
+    Unbinder unbinder;
+    @BindView(R.id.btn_reset)
+    Button btnReset;
+
+    public FragmentB() {
+        // Required empty public constructor
+    }
+
+    public static FragmentB newInstance() {
+        FragmentB fragment = new FragmentB();
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_b, container, false);
+        unbinder = ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        viewModel.getCurrentTime(false).observe(this, time -> tvResultB.setText(time));
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @OnClick(R.id.btn_reset)
+    public void onViewClicked() {
+        MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+        viewModel.getCurrentTime(true);
+    }
+}
