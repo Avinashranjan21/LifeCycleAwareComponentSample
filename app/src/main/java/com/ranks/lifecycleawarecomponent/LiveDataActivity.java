@@ -32,7 +32,6 @@ public class LiveDataActivity extends AppCompatActivity {
 
     private final Observer<Long> elapsedTimeObserver = newValue -> {
         displayTimerValue(String.valueOf(newValue) + " Seconds");
-        Log.d(TAG, "Updating timer");
     };
 
     private void subscribeElapsedTimeObserver() {
