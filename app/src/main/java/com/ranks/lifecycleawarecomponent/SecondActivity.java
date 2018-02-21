@@ -37,8 +37,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         ButterKnife.bind(this);
         MyViewModel viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
-        viewModel.getCurrentTime(false).observe(this, time -> tvResult.setText(time));
-
+        tvResult.setText(viewModel.getCurrentTime());
     }
 
     @OnClick({R.id.btn_fragment_A, R.id.btn_fragment_B})

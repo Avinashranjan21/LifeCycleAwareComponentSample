@@ -1,12 +1,9 @@
 package com.ranks.lifecycleawarecomponent;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -38,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        using View model library
         MyViewModel viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
-        viewModel.getCurrentTime(false).observe(this, time -> tvHelloWorld.setText(time));
+        tvHelloWorld.setText(viewModel.getCurrentTime());
 
         btnSecondActivity.setOnClickListener(view -> startActivity(new Intent(MainActivity.this,SecondActivity.class)));
 

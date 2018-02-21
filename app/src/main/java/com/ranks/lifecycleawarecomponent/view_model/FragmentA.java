@@ -53,7 +53,7 @@ public class FragmentA extends Fragment {
     public void onResume() {
         super.onResume();
         MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
-        viewModel.getCurrentTime(false).observe(getActivity(), time -> tvResultA.setText(time));
+        tvResultA.setText(viewModel.getCurrentTime());
     }
 
     @Override
@@ -75,7 +75,7 @@ public class FragmentA extends Fragment {
 
     @OnClick(R.id.btn_reset)
     public void onViewClicked() {
-        MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
-        viewModel.getCurrentTime(true);
+//        MyViewModel viewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
+//        viewModel.getCurrentTime();
     }
 }
