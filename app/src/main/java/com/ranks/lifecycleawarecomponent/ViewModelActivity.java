@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SecondActivity extends AppCompatActivity {
+public class ViewModelActivity extends AppCompatActivity {
 
 
     @BindView(R.id.btn_fragment_A)
@@ -29,7 +29,7 @@ public class SecondActivity extends AppCompatActivity {
     @BindView(R.id.tv_result)
     TextView tvResult;
     private FragmentTransaction transaction;
-    private static final String TAG = "SecondActivity";
+    private static final String TAG = "ViewModelActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
