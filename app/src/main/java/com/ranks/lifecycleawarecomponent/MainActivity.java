@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
     Button btnViewModel;
     @BindView(R.id.btn_live_data)
     Button btnLiveData;
+    @BindView(R.id.btn_room_activity)
+    Button btnRoomActivity;
     private MyComponent mMyComponent;
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         tvHelloWorld.setText(viewModel.getCurrentTime());
     }
 
-    @OnClick({R.id.btn_view_model, R.id.btn_live_data})
+    @OnClick({R.id.btn_view_model, R.id.btn_live_data,R.id.btn_room_activity})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_view_model:
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_live_data:
                 startActivity(new Intent(MainActivity.this, LiveDataActivity.class));
+                break;
+            case R.id.btn_room_activity:
+                startActivity(new Intent(MainActivity.this, RoomActivity.class));
                 break;
         }
     }
